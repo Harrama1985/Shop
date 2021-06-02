@@ -1,0 +1,15 @@
+.image{
+  width: 25rem;
+  border: 1px solid black;
+  height: 30rem;
+  align-self: flex-end;
+  img{
+    height: 100%;
+    object-fit: cover;
+  }
+
+}
+.image.large{
+  height: 40rem;
+  align-self: flex-start;
+}

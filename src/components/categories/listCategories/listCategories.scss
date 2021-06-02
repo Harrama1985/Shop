@@ -1,0 +1,21 @@
+.listCategories{
+  text-align: center;
+  min-width: 400px;
+  margin-top: 10rem;
+  &__title{
+    font-size: 1.4rem;
+    font-weight:700;
+    text-transform: uppercase;
+
+  }
+  &__item a{
+    display: block;
+    text-transform: capitalize;
+    font-size: 4rem;
+    font-weight: 300;
+    margin: 3rem 0;
+    &:hover{
+      text-shadow: 1px 1px 1px #313131;
+    }
+  }
+}

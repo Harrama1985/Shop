@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext, useEffect } from 'react';
+import { Route, Switch, useLocation } from 'react-router';
+import Header from './components/header';
+import Home from './pages/Home';
+import Men from './pages/Men';
+import Products from './pages/ProdutsPage';
+import Women from './pages/Women';
+import { ContextGender } from './store/storeGender/context';
 
-function App() {
+const App:React.FC =()=> {
+  const location = useLocation()
+  
+  const {state} = useContext(ContextGender)
+  useEffect(() => {
+    const body = document.body
+    if(state.gender=== 'women'){
+      
+      body.classList.remove('men')
+      body.classList.add('women')
+    }else{
+      body.classList.remove('women')
+      body.classList.add('men')
+    }
+  }, [state.gender])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {location.pathname !== '/' && <Header gender='women'/>}
+      <Switch>
+        <Route exact path='/'>
+          <Home/>
+        </Route>
+        <Route path='/men/products/:id' component={Products}/>
+        <Route path='/women/products/:id' component={Products}/>
+        <Route path='/men'>
+          <Men/>
+        </Route>
+        <Route path='/women'>
+          <Women/>
+        </Route>
+      </Switch>
+    </>
+    
   );
 }
 
-export default App;
+export default App ;

@@ -1,0 +1,48 @@
+.inner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  transition: .5s;
+  &:hover{
+    width: 80%;
+  }
+  &:hover &__content{
+    transform: scale(1.2);
+  }
+  &__content{
+    transform: scale(1);
+    transition: .5s;
+  }
+  &__subTitle{
+    display: block;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  &__title{
+    margin-top: 2rem;
+    font-size: 7rem;
+    font-size: 100;
+    text-decoration: none;
+    color:#1d1d22;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: .5s;
+  }
+
+  &.men &__subTitle,&.men &__title{
+    color:white;
+  }
+  &.women &__subTitle,&.women &__title{
+    color:#313131;
+  }
+  
+
+}
+.men.inner{
+  background-color: #363636;
+}
+.women.inner{
+  background-color: white;
+}

@@ -1,0 +1,41 @@
+.switch{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__text{
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-transform: capitalize;
+  }
+  &__box{
+    border:1px solid white;
+    border-radius: 20px;
+    width: 6rem;
+    padding: 3px;
+    margin: 0 2rem;
+    cursor: pointer;
+    position: relative;
+    height: 28px;
+  }
+  &__circle{
+    display: block;
+    background:white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 3px;
+    right:3px;
+  }
+  &__circle.women{
+    left:3px;
+  }
+}
+.women .switch{
+&__box{
+  border-color: #313131;
+}
+&__circle{
+  background-color: #313131;
+}
+}

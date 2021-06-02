@@ -1,0 +1,31 @@
+*,*::before,*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html{
+  font-size: 62.5%;
+}
+body{
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color:#1d1d22;
+}
+body.men{
+  background-color: #313131;
+  color:white
+}
+body.women{
+  background-color: white;
+  color:#313131
+}
+img{
+  width: 100%;
+}
+ul{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+  color:inherit;
+}

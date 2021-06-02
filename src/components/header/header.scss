@@ -1,0 +1,45 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 0 ;
+  & > div{
+    width: 33%;
+  }
+  &__icons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &__search{
+    font-size: 2.5rem;
+/*     color:#313131; */
+    margin-right: 4rem;
+    cursor: pointer;
+  }
+    &__icon{
+      font-size: 3rem;
+    /*   color:#313131; */
+      position: relative;
+      margin-right: 2rem;
+      margin-left: 4rem;
+      display: block;
+      &::before{
+        content:'0';
+        position: absolute;
+        top:0;
+        right: -.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        color:white;
+        background: #131212;
+        font-size: 1rem;
+        text-align: center;
+        line-height: 1.5rem;
+
+      }
+    }
+  }
