@@ -18,4 +18,9 @@
       text-shadow: 1px 1px 1px #313131;
     }
   }
+  &__item a.men{
+    &:hover{
+      text-shadow: 1px 1px 1px white;
+    }
+  }
 }

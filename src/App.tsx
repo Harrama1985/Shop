@@ -25,15 +25,13 @@ const App:React.FC =()=> {
       body.classList.add('men')
     }
   }, [state.gender])
-
-  console.log(location.pathname.slice(1))
-
+  
   useEffect(()=>{
-    const gender= location.pathname.slice(1).toUpperCase();
-  dispatch({type: gender, payload: gender.toLowerCase()})
-    
+  const gender= location.pathname.includes('women') ? 'women' : 'men';
+  dispatch({type: gender.toUpperCase(), payload: gender.toLowerCase()})
   },[])
-  return (
+
+    return (
     <>
     {location.pathname !== '/' && <Header/>}
       <Switch>

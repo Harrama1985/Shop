@@ -11,18 +11,21 @@
     min-width: 350px;
     outline: none;
     border: none;
+    background-color: transparent;
     font-weight: 300;
     font-size: 1.5rem;
     padding: 1rem;
+    color:inherit;
 
     &::placeholder{
       font-size: 1.2rem;
       font-weight: 200;
+      color:inherit;
     }
   }
   svg{
     font-size: 2.3rem;
-    color: #313131;
+    color: inherit;
     cursor: pointer;
   }
 }

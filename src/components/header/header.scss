@@ -21,7 +21,6 @@
   }
     &__icon{
       font-size: 3rem;
-    /*   color:#313131; */
       position: relative;
       margin-right: 2rem;
       margin-left: 4rem;
@@ -39,7 +38,8 @@
         font-size: 1rem;
         text-align: center;
         line-height: 1.5rem;
-
+        border:1px solid white;
       }
+
     }
   }

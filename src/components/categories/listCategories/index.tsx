@@ -11,10 +11,10 @@ const ListCategories:FC<Props> = ({gender}) => {
     <div className='listCategories'>
       <h5 className='listCategories__title'>Categories:</h5>
       <ul className='listCategories__links'>
-        <li className='listCategories__item'><Link to={`/${gender}/products/categories`}>all categories</Link></li>
-        <li className='listCategories__item'><Link to={`/${gender}/products/accessories`}>accessories</Link></li>
-        <li className='listCategories__item'><Link to={`/${gender}/products/clothes`}>clothes</Link></li>
-        <li className='listCategories__item'><Link to={`/${gender}/products/shoes`}>shoes</Link></li>
+        <li className='listCategories__item'><Link className={gender} to={`/${gender}/products/categories`}>all categories</Link></li>
+        <li className='listCategories__item'><Link className={gender} to={`/${gender}/products/accessories`}>accessories</Link></li>
+        <li className='listCategories__item'><Link className={gender} to={`/${gender}/products/clothes`}>clothes</Link></li>
+        <li className='listCategories__item'><Link className={gender} to={`/${gender}/products/shoes`}>shoes</Link></li>
       </ul>
     </div>
    )

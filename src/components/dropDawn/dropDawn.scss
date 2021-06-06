@@ -19,20 +19,17 @@
   &__title{
     font-size: 1.8rem;
     text-transform: capitalize;
-    color: #313131;
+
   }
   &__icon{
     transform: rotate(-90deg);
     font-size: 1.8rem;
-    color: #313131;
     transition: .5s;
-
   }
 
   &__item{
     font-size: 1.6rem;
     text-transform: capitalize;
-    color: #313131;
     border-bottom: 1px solid #313131;
     padding: 1rem;
     transition: .5s;
@@ -42,5 +39,11 @@
       color:white;
     }
   }
+  .men.dropdawn__item{
+    &:active,&--active{
+      background-color: white;
+      color:#313131;
+    }
 
+  }
 }

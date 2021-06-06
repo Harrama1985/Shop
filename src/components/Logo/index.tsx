@@ -8,8 +8,8 @@ interface IProps{
 }
 
 const Logo:FC<IProps> = ({notHome}) => {
-  const {state} = useContext(ContextGender)
 
+  const {state} = useContext(ContextGender)
 
   return (
     <div className={`logo ${state.gender} ${notHome ? 'notHome':''}`} >

@@ -1,5 +1,6 @@
-import React, { FC, MouseEvent, useEffect, useRef, useState } from 'react'
+import React, { FC, MouseEvent, useContext, useEffect, useRef, useState } from 'react'
 import {AiOutlineLeft} from 'react-icons/ai'
+import { ContextGender } from '../../store/storeGender/context'
 import './dropDawn.scss'
 
 interface Props {
@@ -15,6 +16,8 @@ const DropDawn :FC<Props> = ({handlerClick,list,paramId,sort}) => {
   const [active, setActive] = useState(false)
   
   const ref = useRef<HTMLDivElement>(null)
+
+  const {state} = useContext(ContextGender)
 
   useEffect(() => {
     //@ts-ignore
@@ -37,14 +40,14 @@ const DropDawn :FC<Props> = ({handlerClick,list,paramId,sort}) => {
     
   }
   return (
-    <div className='dropdawn' onClick={()=>setActive(prev=>!prev)} ref={ref}>
-      <div className='dropdawn__label'>
+    <div className={`dropdawn text-${state.gender}`} onClick={()=>setActive(prev=>!prev)} ref={ref}>
+      <div className={`dropdawn__label border-${state.gender}`}>
         <h4 className='dropdawn__title'>{ sort ? sort : paramId}</h4>
         <span className='dropdawn__icon'><AiOutlineLeft/></span>
       </div>
       {active && <ul className='dropdawn__list'>
         {list.map((item,i)=>{
-          return(<li className={`dropdawn__item ${displayClass(item)}`} 
+          return(<li className={`dropdawn__item ${displayClass(item)} border-${state.gender} ${state.gender}`} 
                       key={i} onClick={()=>handlerClick(item)}>{item}</li>)
         })}
       </ul>}
