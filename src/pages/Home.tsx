@@ -18,14 +18,15 @@ const Home :FC= () => {
       <Hero>
         <Inner gender='women' 
               isHover={()=>dispatch({type:'WOMEN',payload:'women'})}
-              notHover={()=>dispatch({type:'WOMEN',payload:''})}  />
+              notHover={()=>dispatch({type:'WOMEN',payload:''})}
+                />
         <Inner gender='men' 
                 isHover={()=>dispatch({type:'MEN',payload:'men'})}
                 notHover={()=>dispatch({type:'WOMEN',payload:''})} />
       </Hero> 
     </div>
 
-   )
- }
+  )
+}
 
 export default Home

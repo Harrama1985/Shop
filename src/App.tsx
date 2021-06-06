@@ -14,7 +14,6 @@ const App:React.FC =()=> {
   useEffect(() => {
     const body = document.body
     if(state.gender=== 'women'){
-      
       body.classList.remove('men')
       body.classList.add('women')
     }else{

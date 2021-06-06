@@ -13,7 +13,9 @@ interface Props {
 const DropDawn :FC<Props> = ({handlerClick,list,paramId,sort}) => {
   
   const [active, setActive] = useState(false)
+  
   const ref = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     //@ts-ignore
     const bodyClick = (event)=>{

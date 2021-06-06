@@ -1,10 +1,10 @@
-import React, { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import './switch.scss'
 
 interface Props {}
 
-const Switch :FC<Props> = (props) => {
+const Switch :FC<Props> = () => {
   const [gender, setGender] = useState<string>('')
   const history = useHistory()
   useEffect(() => {

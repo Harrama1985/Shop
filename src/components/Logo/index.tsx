@@ -2,9 +2,11 @@ import React, { FC, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { ContextGender } from '../../store/storeGender/context'
 import './logo.scss'
+
 interface IProps{
   notHome?:boolean;
 }
+
 const Logo:FC<IProps> = ({notHome}) => {
   const {state} = useContext(ContextGender)
   return (
@@ -16,7 +18,7 @@ const Logo:FC<IProps> = ({notHome}) => {
       </h1>
       </Link>
     </div>
-   )
- }
+  )
+}
 
 export default Logo
