@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
+import { ContextGender } from '../../../store/storeGender/context'
 import './img.scss'
 interface Props {
   src:string;
@@ -8,8 +9,9 @@ interface Props {
 
 
 const Img:FC<Props> = ({src,alt,large}) => {
+  const {state} = useContext(ContextGender)
   return (
-    <div className={`image ${large && 'large'}`}>
+    <div className={`image border-${state.gender} ${large && 'large'}`}>
       <img src={src} alt={alt}/>
     </div>
    )

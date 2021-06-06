@@ -7,12 +7,14 @@ interface IProps{
 }
 const Logo:FC<IProps> = ({notHome}) => {
   const {state} = useContext(ContextGender)
+
+
   return (
     <div className={`logo ${state.gender} ${notHome ? 'notHome':''}`} >
       <Link to='/'>
       <h1 className='logo__text'>
-        <span className='logo__black'>sh</span>
-        <span className='logo__white'>op.</span>
+        <span className={`logo__black text-${state.gender}`}>sh</span>
+        <span className={`logo__white text-${state.gender}`}>op.</span>
       </h1>
       </Link>
     </div>

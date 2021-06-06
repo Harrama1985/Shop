@@ -1,0 +1,30 @@
+@import "./mixins.scss";
+
+.text {
+  &-women {
+    color: $women !important;
+  }
+  &-men {
+    color: $men !important;
+  }
+}
+
+// background color
+.bg {
+  &-women {
+    background-color: $women !important;
+  }
+  &-men {
+    background-color: $men !important;
+  }
+}
+
+// border color
+.border {
+  &-women {
+    border-color: $women !important;
+  }
+  &-men {
+    border-color: $men !important;
+  }
+}

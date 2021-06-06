@@ -1,14 +1,12 @@
-import React, { FC, useState } from 'react'
+import { FC } from 'react'
 import Logo from '../Logo'
 import {AiOutlineShopping} from 'react-icons/ai'
 import Switch from './switch'
 import './header.scss'
 import Search from '../search'
 import { useLocation } from 'react-router'
-interface IProps{
-  gender:string;
-}
-const Header:FC<IProps> = ({gender}) => {
+
+const Header:FC= ({}) => {
   const location = useLocation()
   const isPathName= location.pathname !== '/women' && location.pathname !== '/men'
   return (
