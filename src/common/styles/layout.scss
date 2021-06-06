@@ -1,31 +1,35 @@
-*,*::before,*::after{
+@import "./mixins.scss";
+
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
 }
-html{
+html {
   font-size: 62.5%;
 }
-body{
+body {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  color:#1d1d22;
+  font-family: "Montserrat", sans-serif;
+  color: $men;
 }
-body.men{
+body.men {
   background-color: #313131;
-  color:white
+  color: white;
 }
-body.women{
+body.women {
   background-color: white;
-  color:#313131
+  color: #313131;
 }
-img{
+img {
   width: 100%;
 }
-ul{
+ul {
   list-style-type: none;
 }
-a{
+a {
   text-decoration: none;
-  color:inherit;
+  color: inherit;
 }

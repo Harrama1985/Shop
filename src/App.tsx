@@ -1,3 +1,4 @@
+import { type } from 'os';
 import React, { useContext, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router';
 import Header from './components/header';
@@ -8,9 +9,12 @@ import Women from './pages/Women';
 import { ContextGender } from './store/storeGender/context';
 
 const App:React.FC =()=> {
+
   const location = useLocation()
+
+
   
-  const {state} = useContext(ContextGender)
+  const {state,dispatch} = useContext(ContextGender)
   useEffect(() => {
     const body = document.body
     if(state.gender=== 'women'){
@@ -22,9 +26,16 @@ const App:React.FC =()=> {
     }
   }, [state.gender])
 
+  console.log(location.pathname.slice(1))
+
+  useEffect(()=>{
+    const gender= location.pathname.slice(1).toUpperCase();
+  dispatch({type: gender, payload: gender.toLowerCase()})
+    
+  },[])
   return (
     <>
-    {location.pathname !== '/' && <Header gender='women'/>}
+    {location.pathname !== '/' && <Header/>}
       <Switch>
         <Route exact path='/'>
           <Home/>

@@ -1,32 +1,25 @@
-.logo{
+.logo {
   font-size: 1.8rem;
   font-weight: bold;
   text-align: center;
-  position: fixed ;
+  position: fixed;
   top: 2rem;
   left: 0;
-  right: 0; 
+  right: 0;
   letter-spacing: 4px;
 
-  &__text{
+  &__text {
     margin-left: 20px;
   }
-  &__black{
-    color: #363636;
+  &__black {
+    color: #313131;
   }
-  &__white{
-    color:white;
+  &__white {
+    color: white;
   }
 }
 
-.logo.women .logo__white{
-    color:#363636;
-  }
-
-.logo.men .logo__black{
-    color:white;
-  }
-.logo.notHome{
+.logo.notHome {
   position: static;
   text-align: left;
 }
