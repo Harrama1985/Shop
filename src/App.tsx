@@ -1,4 +1,4 @@
-import { type } from 'os';
+
 import React, { useContext, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router';
 import Header from './components/header';
@@ -7,6 +7,7 @@ import Men from './pages/Men';
 import Products from './pages/ProdutsPage';
 import Women from './pages/Women';
 import { ContextGender } from './store/storeGender/context';
+
 
 const App:React.FC =()=> {
 

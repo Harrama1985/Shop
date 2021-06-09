@@ -1,0 +1,23 @@
+.product{
+
+  &__image{
+    overflow: hidden;
+  }
+  &__img{
+    transform: scale(1);
+    &:hover{
+      transform: scale(1.4);
+    }
+  }
+  &__content{
+    padding: 2rem 0;
+  }
+  &__title{
+    font-size: 1.6rem;
+
+  }
+  &__price{
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+}
