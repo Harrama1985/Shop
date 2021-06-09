@@ -6,7 +6,7 @@ interface IState{
 }
 interface IAction{
   type:string;
-  payload:IProduct[]
+  payload:IProduct[]|any
 }
 interface IContextProps {      
   stateData: IState;

@@ -10,7 +10,7 @@ import { ContextGender } from './store/storeGender/context';
 
 
 const App:React.FC =()=> {
-
+  
   const location = useLocation()
 
 

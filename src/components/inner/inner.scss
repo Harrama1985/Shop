@@ -4,6 +4,7 @@
   align-items: center;
   width: 50%;
   transition: .5s;
+  position: relative;
   &:hover{
     width: 80%;
   }
@@ -42,7 +43,32 @@
 }
 .men.inner{
   background-color: #363636;
+  &__images{
+    position: absolute;
+    top: 50%;
+    right:-100%;
+  }
 }
-.women.inner{
+.inner{
   background-color: white;
+  transition: .5s;
+  &:hover{
+    &__images{
+      left: 0;
+    }
+  }
+  &__images{
+    position: absolute;
+    top: 50%;
+    left: -100%;
+  }
+  &__img--top{
+    transform: rotate(10deg);
+    width: 200px;
+  }
+  &__img--bottom{
+    transform: rotate(-5deg);
+    width: 200px;
+  }
 }
+

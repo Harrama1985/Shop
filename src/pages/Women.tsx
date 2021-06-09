@@ -5,8 +5,8 @@ interface Props {}
 
 
 const Women:FC<Props> = () => {
-  const imgLeft ={src:'/images/men1.jpg',alt:'men1'}
-  const imgRight ={src:'/images/men2.jpg',alt:'men2'}
+  const imgLeft ={src:'/images/womenTop.jpeg',alt:'men1'}
+  const imgRight ={src:'/images/womenBottom.jpeg',alt:'men2'}
 
   return (
     <Categories imgLeft={imgLeft} imgRight={imgRight} gender='women'/>

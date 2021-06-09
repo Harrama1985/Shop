@@ -6,6 +6,7 @@ import { ContextGender } from '../../store/storeGender/context'
 import { IProduct } from '../../common/interfaces/interfaces'
 import Product from './product'
 import { useLocation } from 'react-router'
+import Container from '../container'
 
 
 const Products :FC = ({children}) => {
@@ -21,23 +22,24 @@ const Products :FC = ({children}) => {
         ...doc.data()
         }
     })
-    return listProducts
-    //dispatch({type:'GET_DATA',payload:listProducts.length && listProducts})
+  dispatch({type:'GET_DATA',payload:listProducts})
   }
 
   useEffect(() => {
-    dispatch({type:'GET_DATA',payload:fetchData()})
-  }, [])
-  return (
-    <div className='products'>
-      {children}
-      <div className="products__list">
-        {stateData.products.map((item:IProduct)=>(
-          <Product key={item.id} data={item}/>
-        ))}
-      </div>
-    </div>
+    fetchData()
+  }, [gender])
 
+  return (
+    <Container>
+      <div className='products'>
+        {children}
+        <div className="products__list">
+          {stateData.products.map((item:IProduct)=>(
+            <Product key={item.id} data={item}/>
+          ))}
+        </div>
+      </div>
+    </Container>
   )
 }
 
