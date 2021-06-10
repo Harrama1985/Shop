@@ -1,74 +1,109 @@
-.inner{
+.inner {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
-  transition: .5s;
+  transition: 0.5s;
   position: relative;
-  &:hover{
+  overflow: hidden;
+  &:hover {
     width: 80%;
   }
-  &:hover &__content{
+  &:hover &__content {
     transform: scale(1.2);
   }
-  &__content{
-    transform: scale(1);
-    transition: .5s;
+  &__images {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    transform: translateY(-50%);
   }
-  &__subTitle{
+  &__img--top {
+    transition: 0.5s;
+    width: 250px;
+  }
+  &__img--bottom {
+    transition: 0.5s;
+
+    transform: rotate(-5deg);
+    width: 200px;
+  }
+  &__content {
+    transform: scale(1);
+    transition: 0.5s;
+  }
+  &__subTitle {
     display: block;
     font-size: 2rem;
     font-weight: 300;
   }
 
-  &__title{
+  &__title {
     margin-top: 2rem;
     font-size: 7rem;
     font-size: 100;
     text-decoration: none;
-    color:#1d1d22;
+    color: #1d1d22;
     text-transform: capitalize;
     cursor: pointer;
-    transition: .5s;
+    transition: 0.5s;
   }
 
-  &.men &__subTitle,&.men &__title{
-    color:white;
+  &.men &__subTitle,
+  &.men &__title {
+    color: white;
   }
-  &.women &__subTitle,&.women &__title{
-    color:#313131;
+  &.women &__subTitle,
+  &.women &__title {
+    color: #313131;
   }
-  
-
 }
-.men.inner{
+.men.inner {
   background-color: #363636;
-  &__images{
-    position: absolute;
-    top: 50%;
-    right:-100%;
+}
+.women.inner {
+  background-color: white;
+  transition: 0.5s;
+}
+
+//men
+.men > .inner__images {
+  right: 0;
+
+  .inner__img--top {
+    transform: translate(200%, 100px) rotate(-10deg);
+  }
+  .inner__img--bottom {
+    transform: translateX(200%) rotate(5deg);
   }
 }
-.inner{
-  background-color: white;
-  transition: .5s;
-  &:hover{
-    &__images{
-      left: 0;
-    }
+.men.inner:hover {
+  .inner__img--top {
+    transform: translate(-50px, 100px) rotate(-10deg);
   }
-  &__images{
-    position: absolute;
-    top: 50%;
-    left: -100%;
-  }
-  &__img--top{
-    transform: rotate(10deg);
-    width: 200px;
-  }
-  &__img--bottom{
-    transform: rotate(-5deg);
-    width: 200px;
+  .inner__img--bottom {
+    transition-delay: 0.3s;
+    transform: translateX(0px) rotate(5deg);
   }
 }
 
+//women
+.women > .inner__images {
+  left: 0;
+  .inner__img--top {
+    transform: translate(-200%, 100px) rotate(10deg);
+  }
+  .inner__img--bottom {
+    transform: translateX(-200%) rotate(-5deg);
+  }
+}
+.women.inner:hover {
+  .inner__img--top {
+    transform: translate(50px, 100px) rotate(10deg);
+  }
+  .inner__img--bottom {
+    transition-delay: 0.3s;
+    transform: translateX(50px) rotate(-5deg);
+  }
+}
