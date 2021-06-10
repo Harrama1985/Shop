@@ -5,6 +5,7 @@ import Header from './components/header';
 import Home from './pages/Home';
 import Men from './pages/Men';
 import Products from './pages/ProdutsPage';
+import SingleProductPage from './pages/SingleProduct';
 import Women from './pages/Women';
 import { ContextGender } from './store/storeGender/context';
 
@@ -39,14 +40,19 @@ const App:React.FC =()=> {
         <Route exact path='/'>
           <Home/>
         </Route>
+        
+        <Route path='/men/products/:category/:id' component={SingleProductPage}/>
+        <Route path='/women/products/:category/:id' component={SingleProductPage}/>
         <Route path='/men/products/:id' component={Products}/>
         <Route path='/women/products/:id' component={Products}/>
+
         <Route path='/men'>
           <Men/>
         </Route>
         <Route path='/women'>
           <Women/>
         </Route>
+
       </Switch>
     </>
     

@@ -1,8 +1,8 @@
 .product{
-  max-width: 400px;
+  max-width: 350px;
   width: 100%;
   cursor: pointer;
-  margin: 3rem 0;
+  margin: 3rem 2rem;
   animation: move .5s ease-in-out;
   &__image{
     overflow: hidden;

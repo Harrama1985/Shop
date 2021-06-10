@@ -7,6 +7,7 @@ import { IProduct } from '../../common/interfaces/interfaces'
 import Product from './product'
 import { useLocation } from 'react-router'
 import Container from '../container'
+import { Link } from 'react-router-dom'
 
 
 const Products :FC = ({children}) => {
@@ -19,6 +20,7 @@ const Products :FC = ({children}) => {
     const snapshot = await firebase.firestore.collection(gender).get()
     const listProducts = snapshot.docs.map((doc)=>{
       return {
+        id:doc.id,
         ...doc.data()
         }
     })
@@ -28,6 +30,7 @@ const Products :FC = ({children}) => {
   useEffect(() => {
     fetchData()
   }, [gender])
+console.log(stateData.products);
 
   return (
     <Container>
@@ -35,7 +38,10 @@ const Products :FC = ({children}) => {
         {children}
         <div className="products__list">
           {stateData.products.map((item:IProduct)=>(
-            <Product key={item.id} data={item}/>
+            
+            <Link to={`/${gender}/products/${item.category}/${item.id}`} key={item.id}>
+              <Product  data={item}/>
+            </Link>
           ))}
         </div>
       </div>
