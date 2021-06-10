@@ -1,13 +1,13 @@
-.products{
-  &__nav{
+.products {
+  &__nav {
     display: flex;
     justify-content: space-between;
   }
-  &__list{
+  &__list {
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 5rem;
+    margin-top: 7rem;
   }
 }

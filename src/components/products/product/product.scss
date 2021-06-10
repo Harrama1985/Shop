@@ -1,43 +1,42 @@
-.product{
-  max-width: 350px;
+.product {
+  max-width: 320px;
   width: 100%;
   cursor: pointer;
   margin: 3rem 2rem;
-  animation: move .5s ease-in-out;
-  &__image{
+  animation: move 0.5s ease-in-out;
+  &__image {
     overflow: hidden;
     height: 75%;
   }
-  &__img{
+  &__img {
     transform: scale(1);
-    transition: .5s;
+    transition: 0.5s;
     object-fit: cover;
     height: 100%;
-    &:hover{
+    &:hover {
       transform: scale(1.2) rotate(-5deg);
     }
-
   }
-  &__content{
+  &__content {
     padding: 2rem 0;
   }
-  &__title{
+  &__title {
     font-size: 1.6rem;
     font-weight: 300;
     margin-bottom: 1rem;
   }
-  &__price{
+  &__price {
     font-size: 1.8rem;
     font-weight: bold;
   }
 }
 
-@keyframes move{
-  0%{
+@keyframes move {
+  0% {
     opacity: 0;
     transform: translateY(-30%);
   }
-  100%{
+  100% {
     opacity: 1;
     transform: translateY(0);
   }

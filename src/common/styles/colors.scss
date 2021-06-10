@@ -8,6 +8,14 @@
     color: $men !important;
   }
 }
+.text {
+  &_in-women {
+    color: $men !important;
+  }
+  &_in-men {
+    color: $women !important;
+  }
+}
 
 // background color
 .bg {

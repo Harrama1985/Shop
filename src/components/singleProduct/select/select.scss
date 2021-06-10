@@ -1,0 +1,38 @@
+.select {
+  margin: 3rem 0;
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &__option {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__color {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 2rem 1rem;
+    position: relative;
+    cursor: pointer;
+    &::after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 30px;
+      height: 30px;
+      border: 1px solid gray;
+      border-radius: 50%;
+    }
+  }
+  &__size {
+    font-size: 1.8rem;
+    padding: 1rem;
+    margin: 2rem 0;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+}

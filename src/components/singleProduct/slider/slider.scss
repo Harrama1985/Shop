@@ -1,0 +1,40 @@
+.slider {
+  width: 50%;
+  position: relative;
+  &__imgs {
+    padding: 2rem;
+    position: relative;
+    height: 100%;
+    img {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      max-width: 340px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__arrows {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__left {
+    font-size: 3rem;
+    padding: 4rem;
+    cursor: pointer;
+  }
+  &__right {
+    padding: 4rem;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+}

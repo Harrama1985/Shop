@@ -7,12 +7,11 @@ import { IProduct } from '../../common/interfaces/interfaces'
 import Product from './product'
 import { useLocation } from 'react-router'
 import Container from '../container'
-import { Link } from 'react-router-dom'
 
 
 const Products :FC = ({children}) => {
   const {stateData,dispatch} = useContext(ContextProducts)
-  const {state} = useContext(ContextGender)
+ 
   const location = useLocation()
   const gender= location.pathname.includes('women') ? 'women' : 'men';
   
@@ -39,9 +38,8 @@ console.log(stateData.products);
         <div className="products__list">
           {stateData.products.map((item:IProduct)=>(
             
-            <Link to={`/${gender}/products/${item.category}/${item.id}`} key={item.id}>
-              <Product  data={item}/>
-            </Link>
+              <Product gender={gender} data={item} key={item.id}/>
+           
           ))}
         </div>
       </div>

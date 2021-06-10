@@ -1,0 +1,30 @@
+.details {
+  width: 50%;
+  padding: 5rem;
+
+  &__title {
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 3rem;
+  }
+  &__price {
+    font-size: 2rem;
+    margin-bottom: 7rem;
+  }
+  &__add-cart {
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    padding: 1.7rem 2.5rem;
+    cursor: pointer;
+    transform: scale(1);
+    transition: 0.3s;
+    margin: 3rem 0;
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+}
