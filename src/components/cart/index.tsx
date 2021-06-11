@@ -1,21 +1,28 @@
-import { FC } from 'react'
-import './cart.scss'
+import { FC } from "react";
+import { Link } from "react-router-dom";
+import "./cart.scss";
 
-
-const Cart:FC= ({}) => {
-  return(<div className='cart'>
-      <header>
-          <span>your Items</span>
-      </header>
-      <div>
-          please choise your product
-      </div>
-      <footer>
-          <span>total :  $222</span>
-          <button>checkout</button>
-      </footer>
-  </div>)
-  
+interface IProps {
+  showCart: boolean;
 }
 
-export default Cart
+const Cart: FC<IProps> = ({ showCart }) => {
+  return (
+    <div className={`cart ${showCart ? "cart--show" : ""}`}>
+      <header>
+        <span>your Items</span>
+      </header>
+      <div className="cart__list">
+        Your cart is empty, Please add some items
+      </div>
+      <footer>
+        <span>total : $222</span>
+        <button>
+          <Link to="/checkout">checkout</Link>
+        </button>
+      </footer>
+    </div>
+  );
+};
+
+export default Cart;
