@@ -1,0 +1,13 @@
+.qte {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__number {
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 0.5rem 1.3rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin: 0 1rem;
+  }
+}

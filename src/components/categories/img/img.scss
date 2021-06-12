@@ -1,15 +1,18 @@
-.image{
+.image {
   width: 25rem;
   border: 1px solid black;
   height: 30rem;
   align-self: flex-end;
-  img{
+
+  img {
     height: 100%;
     object-fit: cover;
   }
-
+  @media (max-width: 667px) {
+    display: none;
+  }
 }
-.image.large{
+.image.large {
   height: 40rem;
   align-self: flex-start;
 }

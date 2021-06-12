@@ -10,8 +10,11 @@ import Cart from "../cart";
 const Header: FC = ({}) => {
   const [showCart, setShowCart] = useState(false);
   const location = useLocation();
+
   const isPathName =
-    location.pathname !== "/women" && location.pathname !== "/men";
+    location.pathname !== "/women" &&
+    location.pathname !== "/men" &&
+    location.pathname !== "/checkout";
   // const ref = useRef<HTMLDivElement>(null);
   // useEffect(() => {
   //   //@ts-ignore

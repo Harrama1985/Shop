@@ -1,7 +1,17 @@
-.categories{
-  padding-top: 5rem;
-  .container{
+.categories {
+  padding: 5rem 0;
+  .container {
     display: flex;
     justify-content: space-between;
+    @media (max-width: 667px) {
+      justify-content: center;
+    }
+  }
+  &__filter {
+    min-width: 350px;
+    margin: 0 2rem;
+    @media (max-width: 800px) {
+      min-width: 270px;
+    }
   }
 }

@@ -1,29 +1,25 @@
-.search{
+.search {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #313131;
-/*   margin-right: 3rem;
-  position: absolute;
-  top: 0;
-  right: 7rem; */
-  &__input{
+
+  &__input {
     width: 100%;
-    min-width: 350px;
     outline: none;
     border: none;
     background-color: transparent;
     font-weight: 300;
     font-size: 1.5rem;
     padding: 1rem;
-    color:inherit;
+    color: inherit;
 
-    &::placeholder{
+    &::placeholder {
       font-size: 1.2rem;
       font-weight: 200;
-      color:inherit;
+      color: inherit;
     }
   }
-  svg{
+  svg {
     font-size: 2.3rem;
     color: inherit;
     cursor: pointer;
