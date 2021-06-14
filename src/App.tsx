@@ -38,17 +38,17 @@ const App: React.FC = () => {
           <Route exact path="/">
             <Home />
           </Route>
-
-          <Route
-            path="/men/products/:category/:id"
-            component={SingleProductPage}
-          />
           <Route
             path="/women/products/:category/:id"
             component={SingleProductPage}
           />
-          <Route path="/men/products/:id" component={Products} />
+          <Route
+            path="/men/products/:category/:id"
+            component={SingleProductPage}
+          />
           <Route path="/women/products/:id" component={Products} />
+          <Route path="/men/products/:id" component={Products} />
+          
 
           <Route path="/men">
             <Men />

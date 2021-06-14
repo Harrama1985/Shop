@@ -1,7 +1,8 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useContext, useState } from 'react'
 import Container from '../components/container';
 import DropDawn from '../components/dropDawn';
 import Products from '../components/products';
+import { ContextGender } from '../store/storeGender/context';
 
 interface Props {
   match:{
@@ -17,11 +18,11 @@ const ProductsPage :FC<Props> = ({match,history}) => {
   const paramId = match.params.id
   const list =['categories','clothes','shoes','accessories']
   const sortList = ['price low to high','price higt to low','date posted']
-  
+  const {state} = useContext(ContextGender)
   const [sort, setSort] = useState<string>('sort')
   
   const handlerClick =(item:string)=>{
-    history.push(`/men/products/${item}`)
+    history.push(`/${state.gender}/products/${item}`)
   }
   const handlerSort =(item:string)=>{
     setSort(item)

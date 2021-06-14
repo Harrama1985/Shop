@@ -31,7 +31,7 @@ const Slider :FC<Props> = () => {
         {newList.map((item:string,index:number)=>(
         <div className={`slider__img border-${state.gender}
                         ${'slider__img--active'}`} 
-            style={{zIndex:10+index, transform: `translate(-50%,10%) rotate(${index%2===0 ? '-':''}${index*7}deg)`}} key={index}>
+            style={{zIndex:10+index, transform: `translate(-50%,10%) rotate(${index%2===0 ? '-':''}${index*5}deg)`}} key={index}>
           <img src={item}/>
         </div>
         ))}
