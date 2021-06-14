@@ -1,0 +1,48 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+  text-transform: capitalize;
+  max-height: 700px;
+  height: 80vh;
+  &__title {
+    font-size: 10rem;
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0, 0, 0, 0.15);
+  }
+  &__text {
+    font-size: 4rem;
+    margin: 4rem 0;
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0, 0, 0, 0.15);
+  }
+  &__btn {
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+    a {
+      display: block;
+      padding: 1rem 2rem;
+      font-size: 2rem;
+    }
+  }
+  @media (max-width: 667px) {
+    &__title {
+      font-size: 6rem;
+    }
+    &__text {
+      font-size: 3rem;
+      margin: 3rem 0;
+      text-shadow: 3px 2px 0px #fff, 6px 4px 0px rgba(0, 0, 0, 0.15);
+    }
+    &__btn {
+      a {
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 1.7rem;
+      }
+    }
+  }
+}

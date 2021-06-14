@@ -1,15 +1,27 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import "./quantity.scss";
 
 interface IProps {
   gender: string;
 }
 const Quantity: FC<IProps> = ({ gender }) => {
+  const [count, setCount] = useState<number>(1);
   return (
     <div className="qte">
-      <button className="qte__plus">-</button>
-      <span className={`qte__number border-${gender}  `}>1</span>
-      <button className="qte__plus">+</button>
+      <button
+        onClick={() => setCount((prev) => (prev = prev - 1))}
+        className={`qte__plus text-${gender}`}
+      >
+        -
+      </button>
+
+      <span className={`qte__number border-${gender}  `}>{count}</span>
+      <button
+        onClick={() => setCount((prev) => (prev = prev + 1))}
+        className={`qte__plus text-${gender}`}
+      >
+        +
+      </button>
     </div>
   );
 };

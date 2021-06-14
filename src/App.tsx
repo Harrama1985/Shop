@@ -4,6 +4,7 @@ import Checkout from "./components/checkout";
 import Header from "./components/header";
 import Home from "./pages/Home";
 import Men from "./pages/Men";
+import NotFound404 from "./pages/NotFound404";
 import Products from "./pages/ProdutsPage";
 import SingleProductPage from "./pages/SingleProduct";
 import Women from "./pages/Women";
@@ -57,6 +58,9 @@ const App: React.FC = () => {
           </Route>
           <Route path="/checkout">
             <Checkout />
+          </Route>
+          <Route>
+            <NotFound404 />
           </Route>
         </Switch>
       </main>

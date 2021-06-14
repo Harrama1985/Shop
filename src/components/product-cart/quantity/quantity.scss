@@ -5,9 +5,20 @@
   &__number {
     font-size: 1.6rem;
     font-weight: 500;
-    padding: 0.5rem 1.3rem;
+    text-align: center;
+    width: 40px;
+    padding: 0.7rem 0;
     border: 1px solid transparent;
     border-radius: 5px;
     margin: 0 1rem;
+  }
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 1rem;
   }
 }
