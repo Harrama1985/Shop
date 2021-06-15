@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react'
+import { FC, useContext } from 'react'
 import { useState } from 'react'
 import { ContextGender } from '../../../store/storeGender/context'
 import './slider.scss'

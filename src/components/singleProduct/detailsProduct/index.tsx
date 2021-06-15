@@ -7,6 +7,7 @@ interface Props {}
 
 const DetailsProduct :FC<Props> = () => {
   const {state} = useContext(ContextGender)
+  
   return (
     <div className='details'>
       <h2 className='details__title'>title</h2>

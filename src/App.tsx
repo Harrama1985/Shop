@@ -30,6 +30,7 @@ const App: React.FC = () => {
     dispatch({ type: gender.toUpperCase(), payload: gender.toLowerCase() });
   }, []);
 
+
   return (
     <>
       {location.pathname !== "/" && <Header />}
@@ -56,9 +57,11 @@ const App: React.FC = () => {
           <Route path="/women">
             <Women />
           </Route>
+          
           <Route path="/checkout">
-            <Checkout />
+              <Checkout />
           </Route>
+          
           <Route>
             <NotFound404 />
           </Route>
