@@ -1,19 +1,22 @@
 import { FC, useContext } from 'react'
 import { useState } from 'react'
+import { IProduct } from '../../../common/interfaces/interfaces'
 import { ContextGender } from '../../../store/storeGender/context'
 import './slider.scss'
-interface Props {}
+interface Props {
+  product:IProduct | any
+}
 
-const Slider :FC<Props> = () => {
+const Slider :FC<Props> = ({product}) => {
+  
   const {state} = useContext(ContextGender)
-  const list = ['/images/men1.jpg','/images/men2.jpg','/images/menBottom.jpeg','/images/menTop.jpeg']
   const [indexActive, setIndexActive] = useState(1)
-  const [newList, setNewList] = useState<string[]>([list[0]])
+  const [newList, setNewList] = useState<string[]>([product?.images[0]])
 
   const rightClick=()=>{
-    if(list.length-1<indexActive) return;
+    if(product?.images.length-1<indexActive) return;
     setIndexActive(prev=>prev=prev+1)
-    setNewList([...newList,list[indexActive]])
+    setNewList([...newList,product?.images[indexActive]])
   }
 
   const leftClick=()=>{

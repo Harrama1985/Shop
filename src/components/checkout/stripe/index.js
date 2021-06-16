@@ -127,9 +127,11 @@ const CheckoutForm = () => {
     setProcessing(false);
     setPaymentMethod(null);
     setBillingDetails({
-      email: "",
-      phone: "",
-      name: "",
+      adress: "",
+      city: "",
+      state: "",
+      zip: "",
+      fullName: "",
     });
   };
 

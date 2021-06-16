@@ -5,7 +5,6 @@ import "./singleProduct.scss";
 import Container from "../container";
 import { useLocation } from "react-router-dom";
 import { ContextProducts } from "../../store/firebase/context";
-import firebase from "../../firebase/firebase";
 import { IProduct } from "../../common/interfaces/interfaces";
 
 interface Props {}
@@ -27,8 +26,8 @@ const SingleProduct: FC<Props> = () => {
   return (
     <Container>
       <section className="single-product">
-        <Slider />
-        <DetailsProduct />
+        <Slider product = {prod}/>
+        <DetailsProduct product={prod}/>
       </section>
     </Container>
   );
