@@ -10,7 +10,6 @@ interface Props {
 
 const DetailsProduct :FC<Props> = ({product}) => {
   const {state} = useContext(ContextGender)
-  console.log(product);
   
   return product.title ? (<div className='details'>
       <h2 className='details__title'>{product.title}</h2>

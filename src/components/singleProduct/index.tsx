@@ -4,23 +4,24 @@ import Slider from "./slider";
 import "./singleProduct.scss";
 import Container from "../container";
 import { useLocation } from "react-router-dom";
-import { ContextProducts } from "../../store/firebase/context";
 import { IProduct } from "../../common/interfaces/interfaces";
+import firebase from "../../firebase/firebase";
 
 interface Props {}
 
 const SingleProduct: FC<Props> = () => {
 
-  const {stateData} = useContext(ContextProducts)
   const location = useLocation()
   const gender= location.pathname.includes('women') ? 'women' : 'men';
   const pathName = location.pathname.split('/')
   const prodId=pathName[pathName.length-1]
   const [prod, setProd] = useState<IProduct|null>(null)
   
+  const getData= async ()=>{
+    
+  }
   useEffect(() => {
-    const singleProduct = stateData.products.filter((item:IProduct)=>item.id === prodId)
-    setProd(singleProduct[0])
+    
   }, [gender])
 
   return (
