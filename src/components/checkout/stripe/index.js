@@ -4,65 +4,38 @@ import {
   CardElement,
   Elements,
   useElements,
-  useStripe
+  useStripe,
 } from "@stripe/react-stripe-js";
 
-import './stripe.scss'
+import "./stripe.scss";
+import Input from "../input";
+
 const CARD_OPTIONS = {
   iconStyle: "solid",
   style: {
     base: {
       iconColor: "#c4f0ff",
-      color: "#fff",
-      fontWeight: 500,
-      fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+      color: "#000",
+      fontWeight: 400,
+      fontFamily: "Montserrat,  sans-serif",
       fontSize: "16px",
       fontSmoothing: "antialiased",
       ":-webkit-autofill": {
-        color: "#fce883"
+        color: "#fce883",
       },
       "::placeholder": {
-        color: "#87bbfd"
-      }
+        color: "#87bbfd",
+      },
     },
     invalid: {
-      iconColor: "#ffc7ee",
-      color: "#ffc7ee"
-    }
-  }
+      iconColor: "#ff0000",
+      color: "#ff0000",
+    },
+  },
 };
 
 const CardField = ({ onChange }) => (
-  <div className="FormRow">
-    <CardElement options={CARD_OPTIONS} onChange={onChange} />
-  </div>
-);
-
-const Field = ({
-  label,
-  id,
-  type,
-  placeholder,
-  required,
-  autoComplete,
-  value,
-  onChange
-}) => (
-  <div className="FormRow">
-    <label htmlFor={id} className="FormRowLabel">
-      {label}
-    </label>
-    <input
-      className="FormRowInput"
-      id={id}
-      type={type}
-      placeholder={placeholder}
-      required={required}
-      autoComplete={autoComplete}
-      value={value}
-      onChange={onChange}
-    />
-  </div>
+  <CardElement options={CARD_OPTIONS} onChange={onChange} />
 );
 
 const SubmitButton = ({ processing, error, children, disabled }) => (
@@ -110,11 +83,12 @@ const CheckoutForm = () => {
   const [processing, setProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState(null);
   const [billingDetails, setBillingDetails] = useState({
-    email: "",
-    phone: "",
-    name: ""
+    adress: "",
+    city: "",
+    state: "",
+    zip: "",
+    fullName: "",
   });
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -136,7 +110,7 @@ const CheckoutForm = () => {
     const payload = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
-      billing_details: billingDetails
+      billing_details: billingDetails,
     });
 
     setProcessing(false);
@@ -155,7 +129,7 @@ const CheckoutForm = () => {
     setBillingDetails({
       email: "",
       phone: "",
-      name: ""
+      name: "",
     });
   };
 
@@ -172,66 +146,90 @@ const CheckoutForm = () => {
     </div>
   ) : (
     <form className="Form" onSubmit={handleSubmit}>
-      <fieldset className="FormGroup">
-        <Field
-          label="Name"
-          id="name"
+      <Input
+        label="Full Name"
+        id="name"
+        type="text"
+        placeholder="jon doe"
+        required
+        autoComplete="name"
+        value={billingDetails.fullName}
+        onChange={(e) => {
+          setBillingDetails({ ...billingDetails, fullName: e.target.value });
+        }}
+      />
+      <Input
+        label="Adress"
+        id="adress"
+        type="text"
+        placeholder="349 23rd Avenue Burlington"
+        required
+        autoComplete="adress"
+        value={billingDetails.adress}
+        onChange={(e) => {
+          setBillingDetails({ ...billingDetails, adress: e.target.value });
+        }}
+      />
+      <div className="stripe__place">
+        <Input
+          label="City"
+          id="city"
           type="text"
-          placeholder="Jane Doe"
+          placeholder="agadir"
           required
-          autoComplete="name"
-          value={billingDetails.name}
+          autoComplete="city"
+          value={billingDetails.city}
           onChange={(e) => {
-            setBillingDetails({ ...billingDetails, name: e.target.value });
+            setBillingDetails({ ...billingDetails, city: e.target.value });
           }}
         />
-        <Field
-          label="Email"
-          id="email"
-          type="email"
-          placeholder="janedoe@gmail.com"
+        <Input
+          label="State"
+          id="state"
+          type="text"
+          placeholder="CA"
           required
-          autoComplete="email"
-          value={billingDetails.email}
+          autoComplete="state"
+          value={billingDetails.state}
           onChange={(e) => {
-            setBillingDetails({ ...billingDetails, email: e.target.value });
+            setBillingDetails({ ...billingDetails, state: e.target.value });
           }}
         />
-        <Field
-          label="Phone"
-          id="phone"
-          type="tel"
-          placeholder="(941) 555-0123"
+        <Input
+          label="ZIP"
+          id="zip"
+          type="text"
+          placeholder="80000"
           required
-          autoComplete="tel"
-          value={billingDetails.phone}
+          autoComplete="zip"
+          value={billingDetails.zip}
           onChange={(e) => {
-            setBillingDetails({ ...billingDetails, phone: e.target.value });
+            setBillingDetails({ ...billingDetails, zip: e.target.value });
           }}
         />
-      </fieldset>
-      <fieldset className="FormGroup">
-        <CardField
-          onChange={(e) => {
-            setError(e.error);
-            setCardComplete(e.complete);
-          }}
-        />
-      </fieldset>
+      </div>
+
+      <CardField
+        onChange={(e) => {
+          setError(e.error);
+          setCardComplete(e.complete);
+        }}
+      />
+
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
       <SubmitButton processing={processing} error={error} disabled={!stripe}>
-        Pay $25
+        checkout
       </SubmitButton>
     </form>
   );
 };
 
 const ELEMENTS_OPTIONS = {
-  fonts: [
-    {
-      cssSrc: "https://fonts.googleapis.com/css?family=Roboto"
-    }
-  ]
+  // fonts: [
+  //   {
+  //     cssSrc: "https://fonts.googleapis.com/css?family=Roboto",
+  //   },
+  // ],
 };
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
@@ -240,12 +238,10 @@ const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
 
 const Stripe = () => {
   return (
-    <div>
-      <div className="AppWrapper">
-        <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
-          <CheckoutForm />
-        </Elements>
-      </div>
+    <div className="stripe">
+      <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
+        <CheckoutForm />
+      </Elements>
     </div>
   );
 };
