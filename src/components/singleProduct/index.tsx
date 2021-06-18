@@ -10,25 +10,38 @@ import firebase from "../../firebase/firebase";
 interface Props {}
 
 const SingleProduct: FC<Props> = () => {
+  const location = useLocation();
+  const gender = location.pathname.includes("women") ? "women" : "men";
+  const pathName = location.pathname.split("/");
+  const prodId = pathName[pathName.length - 1];
+  const [prod, setProd] = useState<IProduct>();
 
-  const location = useLocation()
-  const gender= location.pathname.includes('women') ? 'women' : 'men';
-  const pathName = location.pathname.split('/')
-  const prodId=pathName[pathName.length-1]
-  const [prod, setProd] = useState<IProduct|null>(null)
-  
-  const getData= async ()=>{
-    
-  }
+  const getData = async () => {
+    const snapshot = await firebase.firestore
+      .collection(gender)
+      .doc(prodId)
+      .get();
+    const snapData = snapshot.data();
+    const data: IProduct = {
+      title: snapData?.title,
+      price: snapData?.price,
+      colors: snapData?.colors,
+      size: snapData?.size,
+      images: snapData?.images,
+      category: snapData?.category,
+      id: snapshot.id,
+    };
+    setProd(data);
+  };
   useEffect(() => {
-    
-  }, [gender])
+    getData();
+  }, [gender]);
 
   return (
     <Container>
       <section className="single-product">
-        <Slider product = {prod}/>
-        <DetailsProduct product={prod}/>
+        <Slider product={prod} />
+        <DetailsProduct product={prod} />
       </section>
     </Container>
   );
