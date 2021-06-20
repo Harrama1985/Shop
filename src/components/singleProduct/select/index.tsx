@@ -4,9 +4,10 @@ import "./select.scss";
 interface Props {
   type: string;
   selectOption: string[];
+  onSelect:(item:string)=>void
 }
 
-const Select: FC<Props> = ({ type, selectOption }) => {
+const Select: FC<Props> = ({ type, selectOption, onSelect }) => {
   const {state} = useContext(ContextGender);
   return (
     <div className="select">
@@ -14,7 +15,7 @@ const Select: FC<Props> = ({ type, selectOption }) => {
       {type === "color" && (
         <ul className="select__option">
           {selectOption.map((item: string, index: number) => (
-            <li className="select__color" key={index} style={{backgroundColor:item}} >
+            <li className="select__color" key={index} style={{backgroundColor:item}} onClick={()=>onSelect(item)}>
           
             </li>
           ))}
@@ -23,7 +24,7 @@ const Select: FC<Props> = ({ type, selectOption }) => {
       {type === "size" && (
         <ul className="select__option">
           {selectOption.map((item: string, index: number) => (
-            <li className={`select__size border-${state.gender}`} key={index}>
+            <li className={`select__size border-${state.gender}`} key={index} onClick={()=>onSelect(item)}>
               {item.toUpperCase()}
             </li>
           ))}

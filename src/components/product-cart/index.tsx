@@ -1,20 +1,27 @@
 import { useContext } from "react";
 import { FC } from "react";
 import { BsTrash } from "react-icons/bs";
+import { IprodCart } from "../../common/interfaces/interfaces";
 import { ContextGender } from "../../store/storeGender/context";
 import "./productCart.scss";
 import Quantity from "./quantity";
-const ProductCart: FC = ({}) => {
+interface IProps{
+  data:IprodCart
+}
+
+const ProductCart: FC<IProps> = ({data}) => {
   const { state } = useContext(ContextGender);
+  console.log(data);
+  
   return (
     <li className="productCart">
       <div className="productCart__img">
-        <img src="/images/men1.jpg" alt="img-product" />
+        <img src={data.img} alt='image' />
       </div>
-      <h4 className="productCart__name">name of product</h4>
+      <h4 className="productCart__name">{data.title}</h4>
       {/* qte */}
       <Quantity gender={state.gender} />
-      <p className="productCart__price">$333</p>
+      <p className="productCart__price">${data.price}</p>
       <button className={`productCart__delete text-${state.gender}`}>
         <BsTrash />
       </button>

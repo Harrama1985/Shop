@@ -7,3 +7,12 @@ export interface IProduct{
   category:string,
   images:string[]
 }
+export interface IprodCart{
+  id:string,
+  title:string,
+  price:number,
+  color:string,
+  size:string,
+  qte:number,
+  img:string
+}
